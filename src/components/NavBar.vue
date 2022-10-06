@@ -34,23 +34,11 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-@font-face {
-  font-family: "BitterBold";
-  src: url("../fonts/Bitter-Bold.ttf");
-}
-
-@font-face {
-  font-family: "BitterRegular";
-  src: url("../fonts/Bitter-Regular.ttf");
-}
-
-@font-face {
-  font-family: "VarelaRoundRegular";
-  src: url("../fonts/VarelaRound-Regular.ttf");
-}
+@import "../styles/mixins.scss";
+@import "../styles/font.scss";
 
 .navSections {
-  padding: 0 330px;
+  padding: 0 19%;
   height: 50px;
 }
 
@@ -111,9 +99,7 @@ export default {};
       min-width: 70px;
       font-family: "VarelaRoundRegular", Arial, Helvetica;
 
-      &:hover {
-        background-color: #343538;
-      }
+      @include rippleEffect(#343538);
     }
   }
 }
@@ -137,9 +123,7 @@ export default {};
 
     font-family: "BitterBold", Arial, Helvetica, sans-serif;
 
-    &:hover {
-      background-color: #5a518a;
-    }
+    @include rippleEffect(#5a518a);
   }
 
   &__btnNews {

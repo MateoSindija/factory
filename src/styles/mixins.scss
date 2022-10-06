@@ -1,0 +1,15 @@
+@mixin rippleEffect($bckColor) {
+  background-position: center;
+  transition: background 0.3s;
+
+  &:hover {
+    background: $bckColor radial-gradient(circle, transparent 1%, $bckColor 1%)
+      center/15000%;
+  }
+
+  &:active {
+    background-color: lighten($bckColor, 20);
+    background-size: 100%;
+    transition: background 0s;
+  }
+}
