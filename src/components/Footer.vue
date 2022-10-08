@@ -3,7 +3,7 @@
     <div class="upperRow">
       <div class="flexCol upperRow__firstCol">
         <div class="upperRow__firstCol__logo">
-          <img src="../assets/logo.svg" alt="logo" />
+          <img src="../assets/logoBlue.svg" alt="logo" />
           <div class="upperRow__firstCol__logo__name">Kenaz</div>
         </div>
         <div class="upperRow__firstCol__lorem">
@@ -70,6 +70,15 @@
           <div>assuevverit</div>
           <div>utroquoe</div>
         </div>
+        <div class="upperRow__thirdCol__twitter">
+          <div class="colNewstTitle">Twitter Feed</div>
+          <TwitterFeed
+            v-for="(i, index) in this.twitterData"
+            :userName="i.userName"
+            :post="i.post"
+            :key="index"
+          />
+        </div>
       </div>
     </div>
 
@@ -87,10 +96,19 @@
 </template>
 <script>
 import FooterNews from "./FooterNews.vue";
+import TwitterFeed from "./TwitterFeed.vue";
+import twitterFeed from "../json/TwitterFeed";
 
 export default {
   components: {
     FooterNews,
+    TwitterFeed,
+  },
+
+  data() {
+    return {
+      twitterData: twitterFeed,
+    };
   },
 };
 </script>
@@ -136,6 +154,15 @@ footer {
 }
 
 .noBottomBorder {
+  :deep(.container) {
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:nth-child(n + 2) {
+      margin-top: 18px;
+    }
+  }
 }
 
 .upperRow {
@@ -244,11 +271,14 @@ footer {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-
-      &:first-child {
-      }
+      margin-bottom: 80px;
 
       div {
+        &:nth-child(8) {
+          background-color: $nav-bottom-background-color;
+          color: $footer-grey-color;
+        }
+
         font-family: "VarelaRoundRegular", Arial, Helvetica;
         font-size: 12px;
         color: $footer-text-color;
@@ -277,6 +307,7 @@ footer {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    width: 945px;
   }
 }
 </style>
