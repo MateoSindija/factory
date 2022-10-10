@@ -156,6 +156,5 @@ nav {
   display: flex;
   flex-direction: column;
   background-color: $nav-upper-background-color;
-  margin: -8px;
 }
 </style>

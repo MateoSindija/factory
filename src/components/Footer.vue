@@ -120,7 +120,7 @@ export default {
 footer {
   display: flex;
   flex-direction: column;
-  margin: auto -8px -8px -8px;
+  margin: auto 0 0 0;
 
   height: 992px;
   background-color: #252525;

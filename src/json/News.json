@@ -1,0 +1,67 @@
+[
+  {
+    "title": "News",
+    "color": "#3677B5",
+    "articles": [
+      {
+        "date": "August 26, 2013",
+        "number": 14,
+        "title": "For Obama, MLK's shadow looms large ahead of speech"
+      },
+      {
+        "date": "August 26, 2013",
+        "number": 22,
+        "title": "NASA releases portrait of a planet waving at Saturn"
+      },
+      {
+        "date": "August 26, 2013",
+        "number": 22,
+        "title": "Patriotsvv make cuts ... and Tim Tebow survives (so far)"
+      }
+    ]
+  },
+
+  {
+    "title": "Sport",
+    "color": "#84C14F",
+    "articles": [
+      {
+        "date": "August 26, 2013",
+        "number": 14,
+        "title": "For Obama, MLK's shadow looms large ahead of speech"
+      },
+      {
+        "date": "August 26, 2013",
+        "number": 22,
+        "title": "NASA releases portrait of a planet waving at Saturn"
+      },
+      {
+        "date": "August 26, 2013",
+        "number": 22,
+        "title": "Patriotsvv make cuts ... and Tim Tebow survives (so far)"
+      }
+    ]
+  },
+
+  {
+    "title": "Business",
+    "color": "#EE6151",
+    "articles": [
+      {
+        "date": "August 26, 2013",
+        "number": 14,
+        "title": "For Obama, MLK's shadow looms large ahead of speech"
+      },
+      {
+        "date": "August 26, 2013",
+        "number": 22,
+        "title": "NASA releases portrait of a planet waving at Saturn"
+      },
+      {
+        "date": "August 26, 2013",
+        "number": 22,
+        "title": "Patriotsvv make cuts ... and Tim Tebow survives (so far)"
+      }
+    ]
+  }
+]

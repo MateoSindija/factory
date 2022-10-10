@@ -25,12 +25,13 @@ export default {
 <style lang="scss">
 body {
   background-color: $body-background-color;
+  margin: 0px;
 }
 
 .center {
-  margin: 16px auto;
-  background-color: $body-background-color;
-  width: 940px;
+  display: flex;
+  justify-content: center;
+  margin: 16px 0 38px 0;
 }
 
 #app {
@@ -39,7 +40,5 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-
-  background-color: #595959;
 }
 </style>
