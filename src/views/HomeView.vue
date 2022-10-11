@@ -1,19 +1,21 @@
 <template>
   <div class="home">
     <Banner :height="120" :width="940" />
-    <TopCarousel />
+    <NewsCarouselTop :news="this.topNews" />
     <div class="row home__secondRow">
       <div class="rowChildrenSpacing home__secondRow__firstCol">
         <News
           :color="this.news.color"
           :title="this.news.title"
           :articles="this.news.articles"
+          :isSideway="false"
         />
 
         <News
           :color="this.sport.color"
           :title="this.sport.title"
           :articles="this.sport.articles"
+          :isSideway="false"
         />
 
         <Banner :height="123" :width="620" />
@@ -22,7 +24,11 @@
           :color="this.business.color"
           :title="this.business.title"
           :articles="this.business.articles"
+          :isSideway="true"
         />
+        <Banner :height="123" :width="620" />
+
+        <NewsCarouselCard :inView="2" />
       </div>
 
       <div class="rowChildrenSpacing home__secondRow__secondCol">
@@ -34,10 +40,12 @@
 
 <script>
 import Banner from "../components/Banner.vue";
-import TopCarousel from "../components/TopCarousel.vue";
+import NewsCarouselTop from "../components/NewsCarouselTop.vue";
 import NewsData from "../json/News.json";
 import News from "../components/News.vue";
 import NewsVioletBanner from "../components/NewsVioletBanner.vue";
+import TopCarouselNews from "../json/TopCarouselNews.json";
+import NewsCarouselCard from "../components/NewsCarouselCard.vue";
 
 export default {
   name: "HomeView",
@@ -46,14 +54,16 @@ export default {
       news: NewsData[0],
       sport: NewsData[1],
       business: NewsData[2],
+      topNews: TopCarouselNews,
     };
   },
 
   components: {
     Banner,
-    TopCarousel,
+    NewsCarouselTop,
     News,
     NewsVioletBanner,
+    NewsCarouselCard,
   },
 };
 </script>
@@ -71,14 +81,14 @@ export default {
   }
 }
 .home {
-  width: 944px;
+  width: 940px;
 
   &__secondRow {
     display: flex;
     flex-direction: row;
 
     &__firstCol {
-      width: 622px;
+      width: 618px;
       margin-right: 19px;
     }
 

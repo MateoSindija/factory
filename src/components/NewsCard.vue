@@ -1,5 +1,5 @@
 <template lang="">
-  <div class="card">
+  <div :class="handleType">
     <img src="../assets/newsMountain.svg" alt="news" />
     <div class="card__article">
       <div class="card__article__number">
@@ -19,15 +19,49 @@ export default {
   props: {
     date: String,
     title: String,
-    number: Number,
+    number: {
+      type: Number,
+      required: false,
+    },
+    isSideway: Boolean,
+  },
+
+  computed: {
+    handleType() {
+      return {
+        "cardSideway card": this.isSideway,
+        card: !this.isSideway,
+      };
+    },
   },
 };
 </script>
 <style lang="scss" scoped>
 @import "../styles/font.scss";
 @import "../styles/variables.scss";
+
+.cardSideway {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex: 1;
+
+  &:nth-child(-n + 2) {
+    margin-bottom: 30px !important;
+  }
+
+  .card__article__title {
+    width: 118px;
+  }
+
+  img {
+    margin-right: 15px;
+    width: 120px !important;
+    height: 90px !important;
+  }
+}
+
 .card {
-  width: 170px;
   cursor: pointer;
 
   img {

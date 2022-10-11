@@ -2,13 +2,14 @@
   <div class="container" :style="containerColor">
     <div class="container__title">{{ this.title }}</div>
     <a class="container__link" href="/">See all</a>
-    <div class="container__cards">
+    <div :class="flexDirection">
       <NewsCard
         v-for="(e, index) in this.articles"
         :key="index"
         :date="e.date"
         :title="e.title"
         :number="e.number"
+        :isSideway="this.isSideway"
       />
     </div>
   </div>
@@ -21,6 +22,7 @@ export default {
     color: String,
     title: String,
     articles: Array,
+    isSideway: Boolean,
   },
   components: {
     NewsCard,
@@ -33,10 +35,24 @@ export default {
       },
     };
   },
+
+  computed: {
+    flexDirection() {
+      return {
+        container__cards: !this.isSideway,
+        "container__cards wrap": this.isSideway,
+      };
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
 @import "../styles/font.scss";
+
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 .container {
   width: 546px;

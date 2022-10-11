@@ -27,17 +27,14 @@
     "articles": [
       {
         "date": "August 26, 2013",
-        "number": 14,
         "title": "For Obama, MLK's shadow looms large ahead of speech"
       },
       {
         "date": "August 26, 2013",
-        "number": 22,
         "title": "NASA releases portrait of a planet waving at Saturn"
       },
       {
         "date": "August 26, 2013",
-        "number": 22,
         "title": "Patriotsvv make cuts ... and Tim Tebow survives (so far)"
       }
     ]
@@ -49,18 +46,19 @@
     "articles": [
       {
         "date": "August 26, 2013",
-        "number": 14,
         "title": "For Obama, MLK's shadow looms large ahead of speech"
       },
       {
         "date": "August 26, 2013",
-        "number": 22,
-        "title": "NASA releases portrait of a planet waving at Saturn"
+        "title": "For Obama, MLK's shadow looms large ahead of speech"
       },
       {
         "date": "August 26, 2013",
-        "number": 22,
-        "title": "Patriotsvv make cuts ... and Tim Tebow survives (so far)"
+        "title": "For Obama, MLK's shadow looms large ahead of speech"
+      },
+      {
+        "date": "August 26, 2013",
+        "title": "For Obama, MLK's shadow looms large ahead of speech"
       }
     ]
   }
