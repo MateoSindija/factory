@@ -61,5 +61,74 @@
         "title": "For Obama, MLK's shadow looms large ahead of speech"
       }
     ]
+  },
+
+  {
+    "title": "News Carousel",
+    "color": "#FCC44D",
+    "articles": [
+      {
+        "date": "August 26, 2013",
+        "title": "For Obama, MLK's shadow looms large ahead of speech"
+      },
+      {
+        "date": "August 26, 2013",
+        "title": "For Obama, MLK's shadow looms large ahead of speech"
+      },
+      {
+        "date": "August 26, 2093",
+        "title": "For Obama, MLK's shadow looms large ahead of speech"
+      },
+      {
+        "date": "August 26, 2008",
+        "title": "For Barack, MLK's shadow looms large ahead of speech"
+      }
+    ]
+  },
+
+  {
+    "title": "Editorials",
+    "color": "#A99765",
+    "articles": [
+      {
+        "date": "August 26, 2013",
+        "title": "For Obama, MLK's shadow looms large ahead of speech"
+      },
+      {
+        "date": "August 26, 2013",
+        "title": "For Obama, MLK's shadow looms large ahead of speech"
+      },
+      {
+        "date": "August 26, 2093",
+        "title": "For Obama, MLK's shadow looms large ahead of speech"
+      },
+      {
+        "date": "August 26, 2008",
+        "title": "For Barack, MLK's shadow looms large ahead of speech"
+      }
+    ]
+  },
+
+  {
+    "title": "Local News",
+    "color": "#A99765",
+    "articles": [
+      {
+        "date": "August 26, 2013",
+        "title": "For Obama, MLK's shadow looms large ahead of speech"
+      },
+      {
+        "date": "August 26, 2013",
+        "title": "For Obama, MLK's shadow looms large ahead of speech"
+      },
+      {
+        "date": "August 26, 2093",
+        "title": "For Obama, MLK's shadow looms large ahead of speech"
+      },
+      {
+        "date": "August 26, 2008",
+        "title": "For Barack, MLK's shadow looms large ahead of speech"
+      }
+    ]
   }
 ]

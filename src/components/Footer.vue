@@ -95,16 +95,9 @@
   </footer>
 </template>
 <script>
-import FooterNews from "./FooterNews.vue";
-import TwitterFeed from "./TwitterFeed.vue";
 import twitterFeed from "../json/TwitterFeed";
 
 export default {
-  components: {
-    FooterNews,
-    TwitterFeed,
-  },
-
   data() {
     return {
       twitterData: twitterFeed,
@@ -157,10 +150,6 @@ footer {
   :deep(.container) {
     &:last-child {
       border-bottom: none;
-    }
-
-    &:nth-child(n + 2) {
-      margin-top: 18px;
     }
   }
 }

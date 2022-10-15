@@ -1,6 +1,6 @@
 <template lang="">
   <div :class="handleType">
-    <img src="../assets/newsMountain.svg" alt="news" />
+    <img src="../assets/newsMountain.png" alt="news" />
     <div class="card__article">
       <div class="card__article__number">
         {{ this.number }}
@@ -42,13 +42,12 @@ export default {
 
 .cardSideway {
   display: flex;
-  align-items: center;
   flex-direction: row;
-  flex: 1;
 
-  &:nth-child(-n + 2) {
-    margin-bottom: 30px !important;
-  }
+  margin-left: 0px !important;
+  margin-bottom: 20px;
+  margin-right: 15px;
+  margin-top: 0px !important ;
 
   .card__article__title {
     width: 118px;
@@ -63,9 +62,20 @@ export default {
 
 .card {
   cursor: pointer;
+  max-width: 260px;
+
+  &:hover {
+    .card__article__title {
+      text-decoration: underline;
+    }
+
+    img {
+      filter: brightness(0.85);
+    }
+  }
 
   img {
-    width: 170px;
+    width: 100%;
     height: 128px;
   }
 
@@ -95,9 +105,9 @@ export default {
       font-size: 14px;
       font-weight: 700;
 
-      &:hover {
-        color: black;
-      }
+      max-height: 70px;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 }

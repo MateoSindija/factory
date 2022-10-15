@@ -25,6 +25,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@import "../styles/mixins.scss";
 .container {
   display: flex;
   align-items: center;
@@ -37,9 +38,7 @@ export default {
   padding: 20px 33px;
   border-bottom: 1px solid #000000;
 
-  &:hover {
-    background-color: #453c75;
-  }
+  @include rippleEffect(#453c75);
 
   &__text {
     text-align: left;

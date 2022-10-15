@@ -1,14 +1,14 @@
 <template lang="">
   <div class="container">
     <div class="container__nav">
-      <button :class="isActivePopular" @click="handleNav('popular')">
-        Popular
+      <button class="container__nav__category" @click="handleNav('popular')">
+        <div :class="isActivePopular">Popular</div>
       </button>
-      <button :class="isActiveRated" @click="handleNav('rated')">
-        Top Rated
+      <button class="container__nav__category" @click="handleNav('rated')">
+        <div :class="isActiveRated">Top Rated</div>
       </button>
-      <button :class="isActiveComments" @click="handleNav('comments')">
-        Comments
+      <button class="container__nav__category" @click="handleNav('comments')">
+        <div :class="isActiveComments">Comments</div>
       </button>
     </div>
 
@@ -24,7 +24,6 @@
   </div>
 </template>
 <script>
-import NewsCardVioletBanner from "../components/NewsCardVioletBanner.vue";
 import NewsBannerData from "../json/BannerNews.json";
 
 export default {
@@ -35,22 +34,6 @@ export default {
       commentsActive: false,
       bannerData: NewsBannerData,
     };
-  },
-
-  components: {
-    NewsCardVioletBanner,
-  },
-
-  computed: {
-    isActivePopular() {
-      return ["container__nav__category", { active: this.popularActive }];
-    },
-    isActiveRated() {
-      return ["container__nav__category", { active: this.ratedActive }];
-    },
-    isActiveComments() {
-      return ["container__nav__category", { active: this.commentsActive }];
-    },
   },
 
   methods: {
@@ -68,6 +51,23 @@ export default {
         this.ratedActive = false;
         this.commentsActive = true;
       }
+    },
+  },
+  computed: {
+    isActivePopular() {
+      return [
+        "container__nav__category__title",
+        { active: this.popularActive },
+      ];
+    },
+    isActiveRated() {
+      return ["container__nav__category__title", { active: this.ratedActive }];
+    },
+    isActiveComments() {
+      return [
+        "container__nav__category__title",
+        { active: this.commentsActive },
+      ];
     },
   },
 };
@@ -93,7 +93,7 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 18px 32px;
+    padding: 0px 32px;
     background-color: #3e3668;
 
     &__category {
@@ -102,11 +102,15 @@ export default {
       color: #ffffff;
       background-color: #3e3668;
       border: none;
-      border-bottom: 0.5px solid #acb3ba;
+
       cursor: pointer;
-      height: 100%;
+      height: 53px;
 
       @include rippleEffect(#59527d);
+
+      &__title {
+        border-bottom: 0.5px solid #acb3ba;
+      }
     }
   }
 }

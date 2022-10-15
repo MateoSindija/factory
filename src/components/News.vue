@@ -1,31 +1,19 @@
 <template lang="">
   <div class="container" :style="containerColor">
     <div class="container__title">{{ this.title }}</div>
-    <a class="container__link" href="/">See all</a>
+    <a class="container__link" href="/" v-if="!this.isCarousel">See all</a>
     <div :class="flexDirection">
-      <NewsCard
-        v-for="(e, index) in this.articles"
-        :key="index"
-        :date="e.date"
-        :title="e.title"
-        :number="e.number"
-        :isSideway="this.isSideway"
-      />
+      <slot></slot>
     </div>
   </div>
 </template>
 <script>
-import NewsCard from "./NewsCard.vue";
-
 export default {
   props: {
     color: String,
     title: String,
-    articles: Array,
     isSideway: Boolean,
-  },
-  components: {
-    NewsCard,
+    isCarousel: Boolean,
   },
 
   data() {
@@ -55,7 +43,10 @@ export default {
 }
 
 .container {
-  width: 546px;
+  max-width: 622px;
+  min-width: 303px;
+  min-height: 318px;
+  box-sizing: border-box;
   height: 305px;
   padding: 15px 31px 0px 31px;
 
@@ -94,7 +85,7 @@ export default {
     margin-top: 30px;
 
     :deep(.card) {
-      &:nth-child(2) {
+      &:nth-child(even) {
         margin: 0 20px;
       }
     }

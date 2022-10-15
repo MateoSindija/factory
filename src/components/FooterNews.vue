@@ -22,6 +22,7 @@
   cursor: pointer;
   border-bottom: 1px solid rgba(102, 102, 102, 0.2);
   padding-bottom: 21px;
+  padding-top: 18px;
 
   @include rippleEffect(#343538);
 
