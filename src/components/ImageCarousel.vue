@@ -1,5 +1,5 @@
 <template lang="">
-  <div class="container" @mouseover="hover = true" @mouseleave="hover = false">
+  <div class="container" @mouseover="handleHover" @mouseleave="hover = false">
     <teleport to="#imageModal">
       <div class="modalBg" v-if="isModalOpen" @click="closeModal">
         <div class="modalBg__modal">
@@ -52,6 +52,8 @@ import "slick-carousel";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+const MAX_IMAGES_IN_ROW = 7;
+
 export default {
   props: {
     data: Object,
@@ -66,6 +68,23 @@ export default {
   },
 
   methods: {
+    handleHover() {
+      $(".container__thumbs").not(".slick-initialized").slick({
+        dots: false,
+        infinite: false,
+        initialSlide: 0,
+        arrows: false,
+        slidesToScroll: 2,
+        slidesToShow: MAX_IMAGES_IN_ROW,
+      });
+
+      $(".container__thumbs").on("beforeChange", () => {
+        $(`.slick-slide.slick-current div`).removeClass("activeThumb");
+        $(`.slick-slide.slick-current div`).addClass("activeThumb");
+      });
+      this.hover = true;
+    },
+
     changeToSlide(number) {
       $(".container__carouselImage").slick("slickGoTo", number);
     },
@@ -89,18 +108,6 @@ export default {
       nextArrow: ".arrow.container__buttonNext",
       prevArrow: ".arrow.container__buttonPrev",
     });
-
-    $(".container__carouselImage").on(
-      "beforeChange",
-      (event, slick, currentSlide, nextSlide) => {
-        $(`.container__thumbs img:nth-child(${currentSlide + 1})`).removeClass(
-          "activeThumb"
-        );
-        $(`.container__thumbs img:nth-child(${nextSlide + 1})`).addClass(
-          "activeThumb"
-        );
-      }
-    );
   },
 };
 </script>
@@ -138,7 +145,7 @@ export default {
 }
 
 .activeThumb {
-  outline: 2px solid white;
+  outline: 2px solid white !important;
 }
 .modalBg {
   position: fixed;
@@ -155,14 +162,11 @@ export default {
   align-items: center;
 
   &__modal {
-    display: flex;
-    position: relative;
-    z-index: 910;
-    background-color: white;
-
     img {
+      position: relative;
       height: 500px;
       width: auto;
+      z-index: 950;
     }
   }
 }
@@ -186,20 +190,19 @@ export default {
   }
 
   &__thumbs {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    z-index: 100;
-
+    position: absolute !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    z-index: 100 !important;
     background-image: linear-gradient(to bottom, transparent 0%, black 100%);
-    display: flex;
-    justify-content: space-around;
+    display: flex !important;
+    justify-content: space-around !important;
 
     img {
-      margin-bottom: 20px;
-      height: 120px;
-      width: 120px;
-      cursor: pointer;
+      margin-bottom: 20px !important;
+      height: 118px !important;
+      width: 118px !important;
+      cursor: pointer !important;
 
       &:hover {
         outline: 2px solid white;
