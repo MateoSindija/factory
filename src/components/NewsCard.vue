@@ -61,10 +61,10 @@ export default {
 }
 
 .card {
-  cursor: pointer;
   max-width: 260px;
 
   &:hover {
+    cursor: pointer;
     .card__article__title {
       text-decoration: underline;
     }
@@ -77,6 +77,7 @@ export default {
   img {
     width: 100%;
     height: 128px;
+    margin-bottom: 9px;
   }
 
   &__article {

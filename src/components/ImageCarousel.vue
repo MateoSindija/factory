@@ -2,76 +2,46 @@
   <div class="container" @mouseover="hover = true" @mouseleave="hover = false">
     <teleport to="#imageModal">
       <div class="modalBg" v-if="isModalOpen" @click="closeModal">
-        <div class="modalBg__modal"></div>
+        <div class="modalBg__modal">
+          <img
+            :src="require(`@/assets/CarouselImages/${data[imgIndex].src}`)"
+            alt=""
+          />
+        </div>
       </div>
     </teleport>
 
     <button class="arrow container__buttonPrev"></button>
+
     <button class="arrow container__buttonNext"></button>
-    <button
-      class="container__search"
-      v-show="hover"
-      @click="openModal"
-    ></button>
-    <div class="container__thumbs" v-show="hover">
-      <img
-        src="../assets/CarouselImages/Layer36.png"
-        alt="carousel"
-        @click="changeToSlide(0)"
-        class="activeThumbx"
-      />
-      <img
-        src="../assets/CarouselImages/Layer37.png"
-        alt="carousel"
-        @click="changeToSlide(1)"
-      />
-      <img
-        src="../assets/CarouselImages/Layer39.jpg"
-        alt="carousel"
-        @click="changeToSlide(2)"
-      />
-      <img
-        src="../assets/CarouselImages/Layer40.jpg"
-        alt="carousel"
-        @click="changeToSlide(3)"
-      />
-      <img
-        src="../assets/CarouselImages/Layer41.jpg"
-        alt="carousel"
-        @click="changeToSlide(4)"
-      />
-      <img
-        src="../assets/CarouselImages/Layer42.jpg"
-        alt="carousel"
-        @click="changeToSlide(5)"
-      />
-      <img
-        src="../assets/CarouselImages/Layer43.jpg"
-        alt="carousel"
-        @click="changeToSlide(6)"
-      />
-    </div>
+
+    <transition name="slide-thumbs">
+      <div v-if="hover" class="container__thumbs">
+        <img
+          v-for="(i, index) in data"
+          :key="index"
+          :src="require(`@/assets/CarouselImages/${i.src}`)"
+          @click="changeToSlide(index)"
+        />
+      </div>
+    </transition>
     <div class="container__carouselImage">
-      <div class="carouselImage__container">
-        <img src="../assets/CarouselImages/Layer36.png" alt="carousel" />
-      </div>
-      <div class="container__carouselImage__image">
-        <img src="../assets/CarouselImages/Layer37.png" alt="carousel" />
-      </div>
-      <div class="container__carouselImage__image">
-        <img src="../assets/CarouselImages/Layer39.jpg" alt="carousel" />
-      </div>
-      <div class="container__carouselImage__image">
-        <img src="../assets/CarouselImages/Layer40.jpg" alt="carousel" />
-      </div>
-      <div class="container__carouselImage__image">
-        <img src="../assets/CarouselImages/Layer41.jpg" alt="carousel" />
-      </div>
-      <div class="container__carouselImage__image">
-        <img src="../assets/CarouselImages/Layer42.jpg" alt="carousel" />
-      </div>
-      <div class="container__carouselImage__image">
-        <img src="../assets/CarouselImages/Layer43.jpg" alt="carousel" />
+      <div
+        v-for="(i, index) in data"
+        :key="index"
+        class="container__carouselImage__image"
+      >
+        <transition name="slide-search">
+          <button
+            v-if="hover"
+            class="container__carouselImage__image__search"
+            @click="openModal(index)"
+          ></button>
+        </transition>
+        <img
+          :src="require(`@/assets/CarouselImages/${i.src}`)"
+          alt="carousel"
+        />
       </div>
     </div>
   </div>
@@ -83,10 +53,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export default {
+  props: {
+    data: Object,
+  },
+
   data() {
     return {
       hover: false,
       isModalOpen: false,
+      imgIndex: 0,
     };
   },
 
@@ -95,7 +70,8 @@ export default {
       $(".container__carouselImage").slick("slickGoTo", number);
     },
 
-    openModal() {
+    openModal(index) {
+      this.imgIndex = index;
       this.isModalOpen = true;
     },
 
@@ -129,8 +105,40 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.slide-search-move,
+.slide-search-enter-active,
+.slide-search-leave-active {
+  transition: all 0.3s ease;
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  bottom: 0px !important;
+}
+
+.slide-search-enter-from,
+.slide-search-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.slide-thumbs-move,
+.slide-thumbs-enter-active,
+.slide-thumbs-leave-active {
+  transition: all 0.3s ease;
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  bottom: 0px !important;
+}
+
+.slide-thumbs-enter-from,
+.slide-thumbs-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
 .activeThumb {
-  outline: 1px solid white;
+  outline: 2px solid white;
 }
 .modalBg {
   position: fixed;
@@ -147,11 +155,15 @@ export default {
   align-items: center;
 
   &__modal {
+    display: flex;
     position: relative;
     z-index: 910;
     background-color: white;
-    width: 100px;
-    height: 100px;
+
+    img {
+      height: 500px;
+      width: auto;
+    }
   }
 }
 .arrow {
@@ -161,26 +173,7 @@ export default {
 
 .container {
   position: relative;
-
-  &__search {
-    position: absolute;
-    z-index: 100;
-    top: 38%;
-    left: 45%;
-    width: 80px;
-    height: 80px;
-
-    cursor: pointer;
-    border: none;
-    background-position: center;
-    background-color: transparent;
-    background-size: cover;
-    background-image: url("../assets/search.svg");
-
-    &:hover {
-      filter: brightness(50%);
-    }
-  }
+  overflow: hidden;
 
   &__buttonNext {
     right: 10px;
@@ -202,8 +195,6 @@ export default {
     display: flex;
     justify-content: space-around;
 
-    transition: 0.5s all ease-in;
-
     img {
       margin-bottom: 20px;
       height: 120px;
@@ -211,7 +202,7 @@ export default {
       cursor: pointer;
 
       &:hover {
-        outline: 1px solid white;
+        outline: 2px solid white;
       }
     }
   }
@@ -223,6 +214,27 @@ export default {
       width: 940px !important;
       display: flex !important;
       justify-content: center !important;
+      position: relative;
+
+      &__search {
+        position: absolute;
+        z-index: 100;
+        top: 38%;
+        left: 45%;
+        width: 80px;
+        height: 80px;
+
+        cursor: pointer;
+        border: none;
+        background-position: center;
+        background-color: transparent;
+        background-size: cover;
+        background-image: url("../assets/search.svg");
+
+        &:hover {
+          filter: brightness(50%);
+        }
+      }
 
       img {
         height: 400px !important;

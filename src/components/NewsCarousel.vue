@@ -28,20 +28,16 @@ export default {
     },
 
     slickProperties() {
-      return `{"slidesToShow": ${this.inView}}`;
+      return `{"slidesToShow": ${this.inView}, "nextArrow": "<button class='arrowNewsCarousel nextArrowNewsCarousel'  style='background-color: ${this.color}'></button>", "prevArrow": "<button class='arrowNewsCarousel prevArrowNewsCarousel' style='background-color: ${this.color}'></button>"}`;
     },
   },
 
   mounted() {
-    $(".container__carouselNews")
-      .not(".slick-initialized")
-      .slick({
-        dots: false,
-        infinite: false,
-        slidesToScroll: 1,
-        nextArrow: `<button class='arrowNewsCarousel nextArrowNewsCarousel'  style='background-color: ${this.color}'></button>`,
-        prevArrow: `<button class='arrowNewsCarousel prevArrowNewsCarousel' style='background-color: ${this.color}'></button>`,
-      });
+    $(".container__carouselNews").not(".slick-initialized").slick({
+      dots: false,
+      infinite: true,
+      slidesToScroll: 1,
+    });
   },
 };
 </script>
@@ -57,6 +53,10 @@ export default {
   height: 22px;
   width: 16px;
   cursor: pointer;
+
+  &:hover {
+    filter: brightness(70%);
+  }
 }
 
 .nextArrowNewsCarousel {
@@ -77,7 +77,7 @@ export default {
 }
 
 .small {
-  width: 241px;
+  width: 228px;
 }
 .container {
   position: relative;

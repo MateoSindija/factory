@@ -65,7 +65,7 @@
           />
         </News>
         <div class="home__secondRow__firstCol__news">
-          <div class="home__secondRow__firstCol__news__firstCol">
+          <div class="home__secondRow__firstCol__news__firstCarousel">
             <News
               :color="this.editorials.color"
               :title="this.editorials.title"
@@ -80,7 +80,7 @@
               />
             </News>
           </div>
-          <div class="home__secondRow__firstCol__news__secondCol">
+          <div class="home__secondRow__firstCol__news__secondCarousel">
             <News
               :color="this.localNews.color"
               :title="this.localNews.title"
@@ -100,11 +100,22 @@
 
       <div class="rowChildrenSpacing home__secondRow__secondCol">
         <NewsVioletBanner />
+        <Social
+          :facebook="social.facebook"
+          :twitter="social.twitter"
+          :youtube="social.youtube"
+        />
+        <Video />
+
+        <div class="home__secondRow__secondCol__smallBanner">
+          <div><Banner :width="128" :height="128" /></div>
+          <div><Banner :width="128" :height="128" /></div>
+        </div>
       </div>
     </div>
     <Banner :height="120" :width="940" />
     <div class="home__imageCarousel">
-      <ImageCarousel />
+      <ImageCarousel :data="imageData" />
     </div>
   </div>
 </template>
@@ -114,6 +125,8 @@ import NewsData from "../json/News.json";
 import TopCarouselNews from "../json/TopCarouselNews.json";
 import NewsCarousel from "../components/NewsCarousel.vue";
 import ImageCarousel from "@/components/ImageCarousel.vue";
+import SocialData from "../json/Social.json";
+import CarouselImageData from "../json/CarouselImage.json";
 
 export default {
   name: "HomeView",
@@ -126,6 +139,8 @@ export default {
       editorials: NewsData[4],
       localNews: NewsData[5],
       topNews: TopCarouselNews,
+      social: SocialData,
+      imageData: CarouselImageData,
     };
   },
   components: { NewsCarousel, ImageCarousel },
@@ -159,12 +174,12 @@ export default {
         display: flex;
         flex-direction: row;
 
-        &__firstCol {
+        &__firstCarousel {
           width: 303px;
           margin-right: 16px;
         }
 
-        &__secondCol {
+        &__secondCarousel {
           width: 303px;
         }
       }
@@ -172,6 +187,13 @@ export default {
 
     &__secondCol {
       width: 303px;
+
+      &__smallBanner {
+        display: flex;
+        justify-content: space-around;
+        background-color: $social-grey;
+        padding: 19px;
+      }
     }
   }
 }

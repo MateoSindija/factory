@@ -1,0 +1,15 @@
+{
+  "facebook": {
+    "number": 30121,
+    "text": "Fans"
+  },
+
+  "twitter": {
+    "number": 25041,
+    "text": "Followers"
+  },
+  "youtube": {
+    "number": 1000,
+    "text": "Subscribers"
+  }
+}
