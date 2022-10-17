@@ -1,7 +1,9 @@
 <template lang="">
   <div class="container" :style="containerColor">
     <div class="container__title">{{ this.title }}</div>
-    <a class="container__link" href="/" v-if="!this.isCarousel">See all</a>
+    <router-link class="container__link" to="/category" v-if="!this.isCarousel"
+      >See all</router-link
+    >
     <div :class="flexDirection">
       <slot></slot>
     </div>

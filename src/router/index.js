@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import CategoryView from "../views/CategoryView.vue";
+import SingleView from "../views/SingleView.vue";
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: "/category",
     name: "category",
     component: CategoryView,
+  },
+  {
+    path: "/single",
+    name: "Single",
+    component: SingleView,
   },
 ];
 

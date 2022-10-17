@@ -14,6 +14,8 @@ import NewsCarousel from "./components/NewsCarousel.vue";
 import ImageCarousel from "./components/ImageCarousel.vue";
 import Social from "./components/Social.vue";
 import Video from "./components/Video.vue";
+import NewsWrapper from "./components/NewsWrapper.vue";
+import NewsWrapperArticle from "./components/NewsWrapperArticle.vue";
 
 const app = createApp(App);
 
@@ -29,5 +31,7 @@ app.component("NewsCarousel", NewsCarousel);
 app.component("ImageCarousel", ImageCarousel);
 app.component("Social", Social);
 app.component("Video", Video);
+app.component("NewsWrapper", NewsWrapper);
+app.component("NewsWrapperArticle", NewsWrapperArticle);
 
 app.use(router).mount("#app");

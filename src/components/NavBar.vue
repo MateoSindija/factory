@@ -1,12 +1,14 @@
 <template>
   <nav>
     <div class="navSections flexVerCenter upperNav">
-      <div class="flexVerCenter upperNav__logo">
-        <div class="flexVerCenter upperNav__logo__image">
-          <img src="../assets/logo.svg" alt="logo" />
+      <router-link to="/" custom v-slot="{ navigate }">
+        <div @click="navigate" class="flexVerCenter upperNav__logo">
+          <div class="flexVerCenter upperNav__logo__image">
+            <img src="../assets/logo.svg" alt="logo" />
+          </div>
+          <div class="upperNav__logo__name">Kenaz</div>
         </div>
-        <div class="upperNav__logo__name">Kenaz</div>
-      </div>
+      </router-link>
       <div class="flexVerCenter upperNav__buttons">
         <button>Media</button>
         <button>Marketing</button>
@@ -19,24 +21,141 @@
     </div>
 
     <div class="navSections flexVerCenter bottomNav">
-      <button class="bottomNav__btnNews">News</button>
-      <button class="bottomNav__btnBuisiness">Business</button>
-      <button class="bottomNav__btnSport">Sport</button>
-      <button class="bottomNav__btnLife">Life</button>
-      <button class="bottomNav__btnTech">Tech</button>
-      <button class="bottomNav__btnTravel">Travel</button>
+      <router-link to="/category" custom v-slot="{ navigate }"
+        ><button
+          @click="navigate"
+          class="bottomNav__btnNews"
+          :class="isNewsActive ? 'selectedBtn' : ''"
+        >
+          News
+        </button></router-link
+      >
+      <button
+        @click="colorBtn('buisiness')"
+        class="bottomNav__btnBuisiness"
+        :class="isBusinessActive ? 'selectedBtn' : ''"
+      >
+        Business
+      </button>
+      <button
+        @click="colorBtn('sport')"
+        class="bottomNav__btnSport"
+        :class="isSportActive ? 'selectedBtn' : ''"
+      >
+        Sport
+      </button>
+      <button
+        @click="colorBtn('life')"
+        class="bottomNav__btnLife"
+        :class="isLifeActive ? 'selectedBtn' : ''"
+      >
+        Life
+      </button>
+      <button
+        @click="colorBtn('tech')"
+        class="bottomNav__btnTech"
+        :class="isTechActive ? 'selectedBtn' : ''"
+      >
+        Tech
+      </button>
+      <button
+        @click="colorBtn('travel')"
+        class="bottomNav__btnTravel"
+        :class="isTravelActive ? 'selectedBtn' : ''"
+      >
+        Travel
+      </button>
     </div>
   </nav>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      isNewsActive: false,
+      isBusinessActive: false,
+      isSportActive: false,
+      isLifeActive: false,
+      isTechActive: false,
+      isTravelActive: false,
+    };
+  },
+
+  methods: {
+    colorBtn(name) {
+      if (name === "buisiness") {
+        this.isNewsActive = false;
+        this.isBusinessActive = true;
+        this.isSportActive = false;
+        this.isLifeActive = false;
+        this.isTechActive = false;
+        this.isTravelActive = false;
+      } else if (name === "sport") {
+        this.isNewsActive = false;
+        this.isBusinessActive = false;
+        this.isSportActive = true;
+        this.isLifeActive = false;
+        this.isTechActive = false;
+        this.isTravelActive = false;
+      } else if (name === "life") {
+        this.isNewsActive = false;
+        this.isBusinessActive = false;
+        this.isSportActive = false;
+        this.isLifeActive = true;
+        this.isTechActive = false;
+        this.isTravelActive = false;
+      } else if (name === "tech") {
+        this.isNewsActive = false;
+        this.isBusinessActive = false;
+        this.isSportActive = false;
+        this.isLifeActive = false;
+        this.isTechActive = true;
+        this.isTravelActive = false;
+      } else if (name === "travel") {
+        this.isNewsActive = false;
+        this.isBusinessActive = false;
+        this.isSportActive = false;
+        this.isLifeActive = false;
+        this.isTechActive = false;
+        this.isTravelActive = true;
+      }
+    },
+  },
+
+  watch: {
+    $route() {
+      const route = this.$route.path;
+
+      if (route === "/category") {
+        this.isNewsActive = true;
+
+        this.isBusinessActive = false;
+        this.isSportActive = false;
+        this.isLifeActive = false;
+        this.isTechActive = false;
+        this.isTravelActive = false;
+      } else if (route === "/") {
+        this.isNewsActive = false;
+        this.isBusinessActive = false;
+        this.isSportActive = false;
+        this.isLifeActive = false;
+        this.isTechActive = false;
+        this.isTravelActive = false;
+      }
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 @import "../styles/mixins.scss";
 @import "../styles/font.scss";
 
+.selectedBtn {
+  background-color: #299ec3 !important;
+  border-bottom: none !important;
+}
 .navSections {
   padding: 0 19%;
   height: 50px;
@@ -49,6 +168,7 @@ export default {};
 
 .upperNav {
   &__logo {
+    cursor: pointer;
     &__image {
       justify-content: center;
       width: 63px;
@@ -127,8 +247,7 @@ export default {};
   }
 
   &__btnNews {
-    background-color: #299ec3 !important;
-    border-bottom: none;
+    border-bottom: 4px solid lightblue;
   }
 
   &__btnBuisiness {

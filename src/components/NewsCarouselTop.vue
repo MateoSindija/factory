@@ -21,9 +21,14 @@
           </div>
         </div>
         <div class="carousel__container__article__title">{{ i.title }}</div>
-        <button class="carousel__container__article__button">
-          Read Article
-        </button>
+        <router-link to="/single" custom v-slot="{ navigate }">
+          <button
+            @click="navigate"
+            class="carousel__container__article__button"
+          >
+            Read Article
+          </button>
+        </router-link>
       </div>
     </div>
   </div>
