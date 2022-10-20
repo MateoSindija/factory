@@ -10,6 +10,8 @@ module.exports = {
       sass: {
         additionalData: `
           @import "@/styles/variables.scss";
+          @import "@/styles/mixins.scss";
+          @import "@/styles/font.scss";
         `,
       },
     },

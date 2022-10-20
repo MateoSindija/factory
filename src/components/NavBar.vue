@@ -23,45 +23,45 @@
     <div class="navSections flexVerCenter bottomNav">
       <router-link to="/category" custom v-slot="{ navigate }"
         ><button
-          @click="navigate"
+          @click="navigateNews(navigate)"
           class="bottomNav__btnNews"
-          :class="isNewsActive ? 'selectedBtn' : ''"
+          :class="navButtons.isNewsActive ? 'selectedBtn' : ''"
         >
           News
         </button></router-link
       >
       <button
-        @click="colorBtn('buisiness')"
+        @click="changeObject('isBuisinessActive')"
         class="bottomNav__btnBuisiness"
-        :class="isBusinessActive ? 'selectedBtn' : ''"
+        :class="navButtons.isBuisinessActive ? 'selectedBtn' : ''"
       >
         Business
       </button>
       <button
-        @click="colorBtn('sport')"
+        @click="changeObject('isSportActive')"
         class="bottomNav__btnSport"
-        :class="isSportActive ? 'selectedBtn' : ''"
+        :class="navButtons.isSportActive ? 'selectedBtn' : ''"
       >
         Sport
       </button>
       <button
-        @click="colorBtn('life')"
+        @click="changeObject('isLifeActive')"
         class="bottomNav__btnLife"
-        :class="isLifeActive ? 'selectedBtn' : ''"
+        :class="navButtons.isLifeActive ? 'selectedBtn' : ''"
       >
         Life
       </button>
       <button
-        @click="colorBtn('tech')"
+        @click="changeObject('isTechActive')"
         class="bottomNav__btnTech"
-        :class="isTechActive ? 'selectedBtn' : ''"
+        :class="navButtons.isTechActive ? 'selectedBtn' : ''"
       >
         Tech
       </button>
       <button
-        @click="colorBtn('travel')"
+        @click="changeObject('isTravelActive')"
         class="bottomNav__btnTravel"
-        :class="isTravelActive ? 'selectedBtn' : ''"
+        :class="navButtons.isTravelActive ? 'selectedBtn' : ''"
       >
         Travel
       </button>
@@ -70,56 +70,36 @@
 </template>
 
 <script>
+console.log(this?.navButtons?.isSportActive);
 export default {
   data() {
     return {
-      isNewsActive: false,
-      isBusinessActive: false,
-      isSportActive: false,
-      isLifeActive: false,
-      isTechActive: false,
-      isTravelActive: false,
+      navButtons: {
+        isNewsActive: false,
+        isBuisinessActive: false,
+        isSportActive: false,
+        isLifeActive: false,
+        isTechActive: false,
+        isTravelActive: false,
+      },
     };
   },
 
   methods: {
-    colorBtn(name) {
-      if (name === "buisiness") {
-        this.isNewsActive = false;
-        this.isBusinessActive = true;
-        this.isSportActive = false;
-        this.isLifeActive = false;
-        this.isTechActive = false;
-        this.isTravelActive = false;
-      } else if (name === "sport") {
-        this.isNewsActive = false;
-        this.isBusinessActive = false;
-        this.isSportActive = true;
-        this.isLifeActive = false;
-        this.isTechActive = false;
-        this.isTravelActive = false;
-      } else if (name === "life") {
-        this.isNewsActive = false;
-        this.isBusinessActive = false;
-        this.isSportActive = false;
-        this.isLifeActive = true;
-        this.isTechActive = false;
-        this.isTravelActive = false;
-      } else if (name === "tech") {
-        this.isNewsActive = false;
-        this.isBusinessActive = false;
-        this.isSportActive = false;
-        this.isLifeActive = false;
-        this.isTechActive = true;
-        this.isTravelActive = false;
-      } else if (name === "travel") {
-        this.isNewsActive = false;
-        this.isBusinessActive = false;
-        this.isSportActive = false;
-        this.isLifeActive = false;
-        this.isTechActive = false;
-        this.isTravelActive = true;
-      }
+    changeObject(requiredKey) {
+      Object.keys(this.navButtons).forEach((key) => {
+        if (key === requiredKey) {
+          this.navButtons[requiredKey] = true;
+        } else {
+          this.navButtons[key] = false;
+        }
+      });
+    },
+
+    navigateNews(navigate) {
+      this.changeObject("isNewsActive");
+
+      navigate("/category");
     },
   },
 
@@ -128,20 +108,9 @@ export default {
       const route = this.$route.path;
 
       if (route === "/category") {
-        this.isNewsActive = true;
-
-        this.isBusinessActive = false;
-        this.isSportActive = false;
-        this.isLifeActive = false;
-        this.isTechActive = false;
-        this.isTravelActive = false;
+        this.changeObject("isNewsActive");
       } else if (route === "/") {
-        this.isNewsActive = false;
-        this.isBusinessActive = false;
-        this.isSportActive = false;
-        this.isLifeActive = false;
-        this.isTechActive = false;
-        this.isTravelActive = false;
+        this.changeObject("");
       }
     },
   },
@@ -149,9 +118,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/mixins.scss";
-@import "../styles/font.scss";
-
 .selectedBtn {
   background-color: #299ec3 !important;
   border-bottom: none !important;
@@ -228,20 +194,17 @@ export default {
   background-color: $nav-bottom-background-color;
 
   button {
-    color: white;
     background-color: $nav-bottom-background-color;
     height: 100%;
     border-right: none;
     border-top: none;
     border-left: none;
-    font-weight: 700;
     min-width: 100px;
     text-transform: uppercase;
     cursor: pointer;
-    font-size: 18px;
     padding: 0 10px;
 
-    font-family: "BitterBold", Arial, Helvetica, sans-serif;
+    @include titleStyle(white, 18px);
 
     @include rippleEffect(#5a518a);
   }

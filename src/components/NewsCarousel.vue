@@ -42,8 +42,6 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "../styles/mixins.scss";
-
 .arrowNewsCarousel {
   position: absolute;
   top: -41px;

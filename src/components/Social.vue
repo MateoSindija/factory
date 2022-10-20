@@ -34,8 +34,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../styles/font.scss";
-
 .socialStyles {
   display: flex;
   align-items: center;
@@ -48,10 +46,7 @@ export default {
   text-align: left;
 
   &__title {
-    margin-bottom: 16px;
-    font-family: "BitterBold", Arial, Helvetica;
-    font-weight: 700;
-    font-size: 24px;
+    @include titleStyle();
   }
 
   &__row {

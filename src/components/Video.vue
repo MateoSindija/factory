@@ -19,7 +19,6 @@
 export default {};
 </script>
 <style lang="scss" scoped>
-@import "../styles/font.scss";
 .container {
   height: 324px;
   background-color: white;
@@ -34,9 +33,7 @@ export default {};
   }
 
   &__title {
-    font-family: "BitterBold", Arial, Helvetica;
-    font-size: 24px;
-    font-weight: 700;
+    @include titleStyle();
   }
 
   &__desc {

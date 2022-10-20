@@ -73,8 +73,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../styles/mixins.scss";
-
 .active {
   color: #fcc44d !important;
   border-bottom: 0.5px solid #fcc44d !important;

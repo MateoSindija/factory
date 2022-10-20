@@ -37,8 +37,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../styles/font.scss";
-
 .wrap {
   display: flex;
   flex-wrap: wrap;
@@ -76,9 +74,7 @@ export default {
   }
 
   &__title {
-    font-size: 24px;
-    font-family: "BitterBold", Arial, Helvetica;
-    color: #363f48;
+    @include titleStyle();
   }
 
   &__cards {

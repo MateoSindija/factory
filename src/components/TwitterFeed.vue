@@ -18,9 +18,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../styles/font.scss";
-@import "../styles/variables.scss";
-
 .container {
   display: flex;
   flex-direction: column;

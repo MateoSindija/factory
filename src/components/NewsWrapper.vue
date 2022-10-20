@@ -19,7 +19,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../styles/font.scss";
 .wrapper {
   width: 100%;
   min-height: 404px;
@@ -30,9 +29,7 @@ export default {
   background-color: white;
 
   &__title {
-    font-family: "BitterBold", Arial, Helvetica;
-    font-weight: 700;
-    font-size: 24px;
+    @include titleStyle();
     margin-bottom: 12px;
   }
 }

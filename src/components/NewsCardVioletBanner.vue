@@ -25,7 +25,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../styles/mixins.scss";
 .container {
   display: flex;
   align-items: center;
@@ -51,10 +50,7 @@ export default {
     }
 
     &__title {
-      font-family: "BitterBold", Arial, Helvetica;
-      font-weight: 700;
-      color: #ffffff;
-      font-size: 14px;
+      @include titleStyle(#ffffff, 14px);
     }
   }
 

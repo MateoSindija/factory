@@ -63,9 +63,6 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "../styles/font.scss";
-@import "../styles/mixins.scss";
-
 .arrow {
   width: 30px;
   height: 63px;

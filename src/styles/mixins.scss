@@ -13,3 +13,18 @@
     transition: background 0s;
   }
 }
+
+@mixin titleStyle($clr: $title-color, $fnt-size: 24px) {
+  color: $clr;
+  font-weight: 700;
+  font-size: $fnt-size;
+  font-family: "BitterBold", Arial, Helvetica;
+}
+
+@mixin varelaGrey($fnt-size: 13px, $ln-height: 20px) {
+  line-height: $ln-height;
+  color: #444444;
+  font-weight: 400;
+  font-size: $fnt-size;
+  font-family: "VarelaRoundRegular", Arial, Helvetica;
+}

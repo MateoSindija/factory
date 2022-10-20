@@ -37,9 +37,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../styles/font.scss";
-@import "../styles/variables.scss";
-
 .cardSideway {
   display: flex;
   flex-direction: row;
@@ -101,11 +98,8 @@ export default {
 
     &__title {
       margin-top: 5px;
-      color: #363f48;
-      font-family: "BitterBold", Arial, Helvetica;
-      font-size: 14px;
-      font-weight: 700;
 
+      @include titleStyle(#363f48, 14px);
       max-height: 70px;
       overflow: hidden;
       text-overflow: ellipsis;

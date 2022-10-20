@@ -13,9 +13,6 @@
 <script></script>
 
 <style lang="scss" scoped>
-@import "../styles/font.scss";
-@import "../styles/mixins.scss";
-
 .container {
   display: flex;
   flex-direction: row;

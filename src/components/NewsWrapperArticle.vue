@@ -33,8 +33,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../styles/font.scss";
-@import "../styles/mixins.scss";
 .container {
   &__line {
     width: 622px;

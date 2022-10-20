@@ -107,9 +107,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/font.scss";
-@import "../styles/mixins.scss";
-
 footer {
   display: flex;
   flex-direction: column;
@@ -122,9 +119,9 @@ footer {
 
 .colNewstTitle {
   color: white;
-  font-weight: 700;
-  font-size: 24px;
-  font-family: "BitterBold", Arial, Helvetica;
+
+  @include titleStyle();
+
   margin-bottom: 25px;
 }
 
@@ -138,10 +135,8 @@ footer {
   display: flex;
   align-items: center;
 
-  color: $footer-grey-color;
-  font-size: 24px;
-  font-weight: 700;
-  font-family: "BitterBold", Arial, Helvetica;
+  @include titleStyle($footer-grey-color);
+
   margin-bottom: 23px;
   height: 43px;
 }
