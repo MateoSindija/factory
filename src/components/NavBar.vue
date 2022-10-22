@@ -70,7 +70,6 @@
 </template>
 
 <script>
-console.log(this?.navButtons?.isSportActive);
 export default {
   data() {
     return {

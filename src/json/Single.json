@@ -11,5 +11,35 @@
 
   "author": {
     "description": "Molestias ultricies, ante quam urna ut volutpat, egestas dolor dui, nec hac ultrices nulla non netus. Placerat vehicula donec non suscipit egestas, augue vel suspendisse. Et felis venenatis blandit sed est ultrices, adipiscing urna, at aliquam nullam facilisis aliquet sapien, eget duis consectetuer tristique nunc vitae erat, mi purus nisl lorem. "
-  }
+  },
+
+  "comments": [
+    {
+      "userName": "Matt Adams",
+      "date": "Jan 2nd, 2012 2:35 pm",
+      "comment": "Molestias ultricies, ante quam urna ut volutpat, egestas dolor dui, nec hac ultrices nulla non netus. Placerat vehicula donec non suscipit egestas, augue vel suspendisse. Et felis venenatis blandit sed est ultrices, adipiscing urna.",
+      "reply": [
+        {
+          "userName": "Anonymus",
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis dapibus ipsum, id pharetra mi. Mauris eget vulputate nulla."
+        },
+        {
+          "userName": "Anonymus2",
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis dapibus ipsum, id pharetra mi. Mauris eget vulputate nulla."
+        }
+      ]
+    },
+    {
+      "userName": "John Towes",
+      "date": "Jan 2nd, 2012 2:35 pm",
+      "comment": "Molestias ultricies, ante quam urna ut volutpat, egestas dolor dui, nec hac ultrices nulla non netus. Placerat vehicula donec non suscipit egestas, augue vel suspendisse. Et felis venenatis blandit sed est ultrices, adipiscing urna.",
+      "reply": []
+    },
+    {
+      "userName": "Andrew Enns",
+      "date": "Jan 2nd, 2012 2:35 pm",
+      "comment": "Molestias ultricies, ante quam urna ut volutpat, egestas dolor dui, nec hac ultrices nulla non netus. Placerat vehicula donec non suscipit egestas, augue vel suspendisse. Et felis venenatis blandit sed est ultrices, adipiscing urna.",
+      "reply": []
+    }
+  ]
 }
