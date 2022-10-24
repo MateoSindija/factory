@@ -38,9 +38,8 @@ export default {};
 
   &__desc {
     &__date {
-      font-family: "VarelaRoundRegular", Arial, Helvetica;
-      font-size: 12px;
-      color: $footer-text-color;
+      @include varelaRegular(12px, $footer-text-color);
+
       margin-bottom: 5px;
     }
 

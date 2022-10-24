@@ -28,3 +28,10 @@
   font-size: $fnt-size;
   font-family: "VarelaRoundRegular", Arial, Helvetica;
 }
+
+@mixin varelaRegular($fnt-size: 12px, $color: #444444, $fnt-weight: 400) {
+  font-weight: $fnt-weight;
+  font-size: $fnt-size;
+  color: $color;
+  font-family: "VarelaRoundRegular", Arial, Helvetica;
+}

@@ -24,7 +24,7 @@
   </div>
 </template>
 <script>
-import NewsBannerData from "../json/BannerNews.json";
+import NewsBannerData from "@/json/BannerNews.json";
 
 export default {
   data() {
@@ -95,9 +95,8 @@ export default {
     background-color: #3e3668;
 
     &__category {
-      font-family: "VarelaRoundRegular", Arial, Helvetica;
-      font-size: 14px;
-      color: #ffffff;
+      @include varelaRegular(14px, white);
+
       background-color: #3e3668;
       border: none;
 

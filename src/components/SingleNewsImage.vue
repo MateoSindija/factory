@@ -47,8 +47,8 @@ export default {
     }
 
     &__date {
-      font-family: "VarelaRound", Arial, Helvetica;
-      font-size: 12px;
+      @include varelaRegular(12px, black);
+
       margin-bottom: 10px;
     }
   }

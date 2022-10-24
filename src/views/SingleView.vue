@@ -33,12 +33,12 @@
   </div>
 </template>
 <script>
-import SocialData from "../json/Social.json";
-import SingleImage from "../components/SingleNewsImage.vue";
-import SingleData from "../json/Single.json";
-import Article from "../components/Article.vue";
-import Author from "../components/Author.vue";
-import Comments from "../components/Comments.vue";
+import SocialData from "@/json/Social.json";
+import SingleImage from "@/components/SingleNewsImage.vue";
+import SingleData from "@/json/Single.json";
+import Article from "@/components/Article.vue";
+import Author from "@/components/Cards/Author.vue";
+import Comments from "@/components/Comments.vue";
 
 export default {
   components: {

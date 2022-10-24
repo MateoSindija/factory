@@ -121,12 +121,12 @@
 </template>
 
 <script>
-import NewsData from "../json/News.json";
-import TopCarouselNews from "../json/TopCarouselNews.json";
-import NewsCarousel from "../components/NewsCarousel.vue";
-import ImageCarousel from "@/components/ImageCarousel.vue";
-import SocialData from "../json/Social.json";
-import CarouselImageData from "../json/CarouselImage.json";
+import NewsData from "@/json/News.json";
+import TopCarouselNews from "@/json/TopCarouselNews.json";
+import NewsCarousel from "@/components/Carousels/NewsCarousel.vue";
+import ImageCarousel from "@/components/Carousels/ImageCarousel.vue";
+import SocialData from "@/json/Social.json";
+import CarouselImageData from "@/json/CarouselImage.json";
 
 export default {
   name: "HomeView",

@@ -3,19 +3,19 @@ import App from "./App.vue";
 import router from "./router";
 
 import Banner from "./components/Banner.vue";
-import NewsCarouselTop from "./components/NewsCarouselTop.vue";
-import News from "./components/News.vue";
-import NewsVioletBanner from "./components/NewsVioletBanner.vue";
-import FooterNews from "./components/FooterNews.vue";
-import TwitterFeed from "./components/TwitterFeed.vue";
-import NewsCardVioletBanner from "./components/NewsCardVioletBanner.vue";
-import NewsCard from "./components/NewsCard.vue";
-import NewsCarousel from "./components/NewsCarousel.vue";
-import ImageCarousel from "./components/ImageCarousel.vue";
+import NewsCarouselTop from "./components/Carousels/NewsCarouselTop.vue";
+import News from "./components/Wrappers/News.vue";
+import NewsVioletBanner from "./components/Wrappers/NewsVioletBanner.vue";
+import FooterNews from "./components/Cards/FooterNews.vue";
+import TwitterFeed from "./components/Cards/TwitterFeed.vue";
+import NewsCardVioletBanner from "./components/Cards/NewsCardVioletBanner.vue";
+import NewsCard from "./components/Cards/NewsCard.vue";
+import NewsCarousel from "./components/Carousels/NewsCarousel.vue";
+import ImageCarousel from "./components/Carousels/ImageCarousel.vue";
 import Social from "./components/Social.vue";
 import Video from "./components/Video.vue";
-import NewsWrapper from "./components/NewsWrapper.vue";
-import NewsWrapperArticle from "./components/NewsWrapperArticle.vue";
+import NewsWrapper from "./components/Wrappers/NewsWrapper.vue";
+import NewsWrapperArticle from "./components/Cards/NewsWrapperArticle.vue";
 
 const app = createApp(App);
 

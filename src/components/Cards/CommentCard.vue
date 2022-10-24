@@ -2,7 +2,7 @@
   <div class="container">
     <img
       class="container__image"
-      src="../assets/blankProfile.png"
+      src="@/assets/blankProfile.png"
       alt="profile"
     />
 
@@ -63,7 +63,7 @@
         >
           <img
             class="container__comment__replies__reply__image"
-            src="../assets/blankProfile.png"
+            src="@/assets/blankProfile.png"
             alt="profile"
           />
           <div class="container__comment__replies__reply__nameCom">
@@ -149,9 +149,8 @@ export default {
           background-color: #524656;
           cursor: pointer;
           border: none;
-          color: white;
-          font-family: "VarelaRoundRegular", Arial, Helvetica;
-          font-size: 14px;
+
+          @include varelaRegular(14px, white);
 
           @include rippleEffect(#5e5462);
         }
@@ -162,9 +161,8 @@ export default {
           background-color: $nav-bottom-background-color;
           cursor: pointer;
           border: none;
-          color: white;
-          font-family: "VarelaRoundRegular", Arial, Helvetica;
-          font-size: 14px;
+
+          @include varelaRegular(14px, white);
 
           &:disabled {
             background-color: grey;
@@ -173,8 +171,8 @@ export default {
       }
 
       input {
-        font-family: "VarelaRoundRegular", Arial, Helvetica;
-        font-size: 14px;
+        @include varelaRegular(14px, black);
+
         outline: none;
         width: 100%;
         box-sizing: border-box;
@@ -201,26 +199,20 @@ export default {
 
         &__nameCom {
           &__username {
-            font-family: "VarelaRoundRegular", Arial, Helvetica;
-            font-size: 14px;
-            font-weight: 500;
-            color: $nav-bottom-background-color;
+            @include varelaRegular(14px, $nav-bottom-background-color, 500);
+
             margin-bottom: 5px;
           }
 
           &__comment {
-            font-family: "VarelaRoundRegular", Arial, Helvetica;
-            font-size: 12px;
-            color: #444444;
+            @include varelaRegular(12px, #444444);
           }
         }
       }
     }
 
     &__text {
-      font-family: "VarelaRoundRegular", Arial, Helvetica;
-      font-size: 13px;
-      color: #444444;
+      @include varelaRegular(13px, #444444);
     }
 
     &__title {
@@ -231,9 +223,7 @@ export default {
 
       &__reply {
         cursor: pointer;
-        font-family: "VarelaRoundRegular", Arial, Helvetica;
-        font-size: 14px;
-        color: $nav-bottom-background-color;
+        @include varelaRegular(14px, $nav-bottom-background-color);
 
         &:hover {
           color: #786ea9;
@@ -250,9 +240,7 @@ export default {
       }
 
       &__date {
-        font-family: "VarelaRoundRegular", Arial, Helvetica;
-        color: $footer-text-color;
-        font-size: 11px;
+        @include varelaRegular(11px, $footer-text-color);
       }
     }
   }

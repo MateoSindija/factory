@@ -6,7 +6,7 @@
         Palestinians call off peace talks after clash
       </div>
     </div>
-    <img src="../assets/footerNews.svg" alt="news" />
+    <img src="@/assets/footerNews.svg" alt="news" />
     <div class="container__number">5</div>
   </div>
 </template>
@@ -24,9 +24,7 @@
   @include rippleEffect(#343538);
 
   &__number {
-    color: $footer-text-color;
-    font-family: "VarelaRoundRegular", Arial, Helvetica;
-    font-size: 10px;
+    @include varelaRegular(10px, $footer-text-color);
 
     position: relative;
     top: 5px;
@@ -39,10 +37,9 @@
     align-items: flex-start;
 
     &__date {
-      font-family: "VarelaRoundRegular", Arial, Helvetica;
-      color: #666666;
+      @include varelaRegular(10px, #666666);
+
       margin-bottom: 10px;
-      font-size: 10px;
     }
 
     &__title {

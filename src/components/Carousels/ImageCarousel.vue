@@ -5,15 +5,21 @@
         <div class="modalBg__modal">
           <img
             :src="require(`@/assets/CarouselImages/${data[imgIndex].src}`)"
-            alt=""
+            alt="carousel"
           />
         </div>
       </div>
     </teleport>
 
-    <button class="arrow container__buttonPrev"></button>
+    <button
+      class="arrow container__buttonPrev"
+      @mouseover="handleHover"
+    ></button>
 
-    <button class="arrow container__buttonNext"></button>
+    <button
+      class="arrow container__buttonNext"
+      @mouseover="handleHover"
+    ></button>
 
     <transition name="slide-thumbs">
       <div v-if="hover" class="container__thumbs">
@@ -30,6 +36,7 @@
         v-for="(i, index) in data"
         :key="index"
         class="container__carouselImage__image"
+        @mouseover="handleHover"
       >
         <transition name="slide-search">
           <button
@@ -53,6 +60,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const MAX_IMAGES_IN_ROW = 7;
+const FIRST_SLIDE = 0;
+const NUMBER_OF_SLIDES_TO_SCROLL = 2;
 
 export default {
   props: {
@@ -72,16 +81,25 @@ export default {
       $(".container__thumbs").not(".slick-initialized").slick({
         dots: false,
         infinite: false,
-        initialSlide: 0,
+        initialSlide: FIRST_SLIDE,
         arrows: false,
-        slidesToScroll: 2,
+        slidesToScroll: NUMBER_OF_SLIDES_TO_SCROLL,
         slidesToShow: MAX_IMAGES_IN_ROW,
       });
 
-      $(".container__thumbs").on("beforeChange", () => {
-        $(`.slick-slide.slick-current div`).removeClass("activeThumb");
-        $(`.slick-slide.slick-current div`).addClass("activeThumb");
-      });
+      $(".container__carouselImage").on(
+        "beforeChange",
+        (event, slick, currentSlide, nextSlide) => {
+          if (nextSlide >= MAX_IMAGES_IN_ROW) {
+            $(".container__thumbs").slick("slickNext");
+          }
+
+          if (nextSlide === 0) {
+            $(".container__thumbs").slick("slickGoTo", 0);
+          }
+        }
+      );
+
       this.hover = true;
     },
 
@@ -104,7 +122,7 @@ export default {
       dots: false,
       infinite: true,
       arrows: true,
-      initialSlide: 0,
+      initialSlide: FIRST_SLIDE,
       nextArrow: ".arrow.container__buttonNext",
       prevArrow: ".arrow.container__buttonPrev",
     });
@@ -173,6 +191,17 @@ export default {
 .arrow {
   width: 36px;
   height: 53px;
+
+  background-color: white;
+  position: absolute;
+
+  border: none;
+
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(70%);
+  }
 }
 
 .container {
@@ -181,12 +210,16 @@ export default {
 
   &__buttonNext {
     right: 10px;
-    background-image: url("../assets/arrowNext.svg");
+    mask-image: url("@/assets/arrowNext.svg");
+    mask-size: contain;
+    mask-repeat: no-repeat;
   }
 
   &__buttonPrev {
+    mask-image: url("@/assets/arrowPrev.svg");
+    mask-size: contain;
+    mask-repeat: no-repeat;
     left: 10px;
-    background-image: url("../assets/arrowPrev.svg");
   }
 
   &__thumbs {
@@ -199,7 +232,7 @@ export default {
     justify-content: space-around !important;
 
     img {
-      margin-bottom: 20px !important;
+      margin: 2px 0 20px 0 !important;
       height: 118px !important;
       width: 118px !important;
       cursor: pointer !important;
@@ -232,7 +265,7 @@ export default {
         background-position: center;
         background-color: transparent;
         background-size: cover;
-        background-image: url("../assets/search.svg");
+        background-image: url("@/assets/search.svg");
 
         &:hover {
           filter: brightness(50%);

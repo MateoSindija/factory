@@ -62,8 +62,8 @@ export default {
     right: 32px;
     top: 30px;
     color: #3677b5;
-    font-size: 14px;
-    font-family: "VarelaRoundRegular", Arial, Helvetica;
+    @include varelaRegular(14px, #3677b5);
+
     border-bottom: 0.5px solid rgba(54, 119, 181, 0.3);
     cursor: pointer;
 

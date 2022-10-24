@@ -6,7 +6,7 @@
       class="carousel__container"
     >
       <div class="carousel__container__image">
-        <img src="../assets/topCarouselmage.svg" alt="news" />
+        <img src="@/assets/topCarouselmage.svg" alt="news" />
       </div>
       <div class="carousel__container__article">
         <div class="carousel__container__article__dateComments">
@@ -14,7 +14,7 @@
           <div class="carousel__container__article__dateComments__comments">
             <img
               alt="comment"
-              src="../assets/comment.svg"
+              src="@/assets/comment.svg"
               class="carousel__container__article__dateComments__comments__image"
             />
             <div>{{ i.comments }}</div>
@@ -130,9 +130,9 @@ export default {
       &__dateComments {
         display: flex;
         flex-direction: row;
-        font-family: "VarelaRoundRegular", Arial, Helvetica;
-        color: $top-carousel-font-color;
-        font-size: 12px;
+
+        @include varelaRegular(12px, $top-carousel-font-color);
+
         margin-bottom: 6px;
 
         &__comments {
@@ -161,11 +161,11 @@ export default {
 
 .arrowPrev {
   left: 28px;
-  background-image: url("../assets/arrowPrev.svg");
+  background-image: url("@/assets/arrowPrev.svg");
 }
 
 .arrowNext {
   right: 28px;
-  background-image: url("../assets/arrowNext.svg");
+  background-image: url("@/assets/arrowNext.svg");
 }
 </style>

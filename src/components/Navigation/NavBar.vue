@@ -4,7 +4,7 @@
       <router-link to="/" custom v-slot="{ navigate }">
         <div @click="navigate" class="flexVerCenter upperNav__logo">
           <div class="flexVerCenter upperNav__logo__image">
-            <img src="../assets/logo.svg" alt="logo" />
+            <img src="@/assets/logo.svg" alt="logo" />
           </div>
           <div class="upperNav__logo__name">Kenaz</div>
         </div>
@@ -15,7 +15,7 @@
         <button>Contact</button>
 
         <div class="flexVerCenter upperNav__search">
-          <img src="../assets/search.svg" alt="search" />
+          <img src="@/assets/search.svg" alt="search" />
         </div>
       </div>
     </div>
@@ -174,15 +174,13 @@ export default {
     justify-content: space-between;
 
     button {
-      color: white;
       background-color: $nav-upper-background-color;
-      font-size: 14px;
       height: 50px;
       padding: 0 5px;
       border: none;
       cursor: pointer;
       min-width: 70px;
-      font-family: "VarelaRoundRegular", Arial, Helvetica;
+      @include varelaRegular(14px, white);
 
       @include rippleEffect(#343538);
     }

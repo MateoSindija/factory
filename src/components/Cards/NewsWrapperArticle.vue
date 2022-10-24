@@ -3,13 +3,13 @@
     <div class="container__title">{{ title }}</div>
     <div class="container__info">
       <div class="container__info__date">
-        <img src="../assets/calendar.svg" alt="calendar" />{{ date }}
+        <img src="@/assets/calendar.svg" alt="calendar" />{{ date }}
       </div>
       <div>Author: {{ author }}</div>
       <div>{{ comments }} Comments</div>
     </div>
     <div class="container__article">
-      <img src="../assets/newsMountain.png" alt="news" />
+      <img src="@/assets/newsMountain.png" alt="news" />
       <div class="container__article__textBtn">
         <div class="container__article__textBtn__text">{{ article }}</div>
         <router-link to="/single" custom v-slot="{ navigate }"
@@ -55,9 +55,7 @@ export default {
     width: 400px;
     margin-bottom: 16px;
 
-    font-family: "VarelaRoundRegular", Arial, Helvetica;
-    font-size: 12px;
-    color: $footer-text-color;
+    @include varelaRegular(12px, $footer-text-color);
 
     &__date {
       display: flex;

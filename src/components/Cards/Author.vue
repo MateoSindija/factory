@@ -2,7 +2,7 @@
   <div class="author">
     <div class="author__title">About the Author</div>
     <div class="author__info">
-      <img src="../assets/author.png" alt="" />
+      <img src="@/assets/author.png" alt="" />
       <div class="author__info__text">{{ description }}</div>
     </div>
   </div>

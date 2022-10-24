@@ -1,6 +1,6 @@
 <template lang="">
   <div :class="handleType">
-    <img src="../assets/newsMountain.png" alt="news" />
+    <img src="@/assets/newsMountain.png" alt="news" />
     <div class="card__article">
       <div class="card__article__number">
         {{ this.number }}
@@ -82,8 +82,7 @@ export default {
     position: relative;
 
     &__number {
-      font-size: 12px;
-      font-family: "VarelaRoundRegular", Arial, Helvetica;
+      @include varelaRegular(12px, white);
 
       position: absolute;
       top: 3px;
@@ -91,9 +90,7 @@ export default {
     }
 
     &__date {
-      color: #363f48;
-      font-size: 12px;
-      font-family: "VarelaRoundRegular", Arial, Helvetica;
+      @include varelaRegular(12px, #363f48);
     }
 
     &__title {

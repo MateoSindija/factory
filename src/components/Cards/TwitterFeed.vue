@@ -1,7 +1,7 @@
 <template lang="">
   <div class="container">
     <div class="container__username">
-      <img src="../assets/twitterBird.svg" alt="twitter" />
+      <img src="@/assets/twitterBird.svg" alt="twitter" />
       <div>{{ userName }}</div>
     </div>
     <div class="container__post">

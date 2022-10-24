@@ -5,12 +5,12 @@
       <div class="container__text__title">{{ title }}</div>
     </div>
     <div class="container__number">
-      <img src="../assets/comment.svg" alt="comment" />
+      <img src="@/assets/comment.svg" alt="comment" />
       <div class="container__number__text">{{ number }}</div>
     </div>
     <img
       class="container__imageNews"
-      src="../assets/bannerNewsImage.svg"
+      src="@/assets/bannerNewsImage.svg"
       alt="news"
     />
   </div>
@@ -44,9 +44,9 @@ export default {
     width: 172px;
 
     &__date {
-      font-family: "VarelaRoundRegular", Arial, Helvetica;
-      font-size: 12px;
-      color: $date-color-banner;
+      @include varelaRegular(12px, $date-color-banner);
+
+      margin-bottom: 3px;
     }
 
     &__title {
@@ -62,9 +62,8 @@ export default {
     right: 118px;
 
     &__text {
-      color: $date-color-banner;
-      font-family: "VarelaRoundRegular", Arial, Helvetica;
-      font-size: 12px;
+      @include varelaRegular(12px, $date-color-banner);
+
       margin-left: 3px;
     }
   }

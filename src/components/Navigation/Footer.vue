@@ -3,7 +3,7 @@
     <div class="upperRow">
       <div class="flexCol upperRow__firstCol">
         <div class="upperRow__firstCol__logo">
-          <img src="../assets/logoBlue.svg" alt="logo" />
+          <img src="@/assets/logoBlue.svg" alt="logo" />
           <div class="upperRow__firstCol__logo__name">Kenaz</div>
         </div>
         <div class="upperRow__firstCol__lorem">
@@ -11,13 +11,13 @@
           ante.
         </div>
         <div class="upperRow__firstCol__socialMedia">
-          <img src="../assets/rss.svg" alt="rss" />
-          <img src="../assets/facebook.svg" alt="facebook" />
-          <img src="../assets/twitter.svg" alt="twitter" />
-          <img src="../assets/dribble.svg" alt="dribble" />
-          <img src="../assets/linkedin.svg" alt="linkedin" />
-          <img src="../assets/youtube.svg" alt="youtube" />
-          <img src="../assets/skype.svg" alt="skype" />
+          <img src="@/assets/rss.svg" alt="rss" />
+          <img src="@/assets/facebook.svg" alt="facebook" />
+          <img src="@/assets/twitter.svg" alt="twitter" />
+          <img src="@/assets/dribble.svg" alt="dribble" />
+          <img src="@/assets/linkedin.svg" alt="linkedin" />
+          <img src="@/assets/youtube.svg" alt="youtube" />
+          <img src="@/assets/skype.svg" alt="skype" />
         </div>
 
         <div class="upperRow__firstCol__featured">
@@ -95,7 +95,7 @@
   </footer>
 </template>
 <script>
-import twitterFeed from "../json/TwitterFeed";
+import twitterFeed from "@/json/TwitterFeed";
 
 export default {
   data() {
@@ -239,9 +239,7 @@ footer {
         background-color: #4d4382;
         cursor: pointer;
 
-        font-family: "VarelaRoundRegular", Arial, Helvetica;
-        font-size: 16px;
-        color: $footer-grey-color;
+        @include varelaRegular(16px, $footer-grey-color);
 
         @include rippleEffect(#605594);
       }
@@ -263,9 +261,8 @@ footer {
           color: $footer-grey-color;
         }
 
-        font-family: "VarelaRoundRegular", Arial, Helvetica;
-        font-size: 12px;
-        color: $footer-text-color;
+        @include varelaRegular(12px, $footer-text-color);
+
         padding: 4px 12px;
         background-color: #333333;
         margin: 3px;
@@ -275,9 +272,7 @@ footer {
 }
 
 .bottomRowText {
-  font-family: "VarelaRoundRegular", Arial, Helvetica;
-  color: #999999;
-  font-size: 12px;
+  @include varelaRegular(12px, #999999);
 }
 
 .bottomRow {

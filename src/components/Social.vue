@@ -68,9 +68,7 @@ export default {
 
     &__followers {
       background-color: $nav-bottom-background-color;
-      font-family: "VarelaRoundRegular", Arial, Helvetica;
-      color: white;
-      font-size: 14px;
+      @include varelaRegular(14px, white);
       width: 143px;
     }
   }

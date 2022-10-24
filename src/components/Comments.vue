@@ -47,8 +47,8 @@
   </div>
 </template>
 <script>
-import SingleData from "../json/Single.json";
-import CommentCard from "../components/CommentCard.vue";
+import SingleData from "@/json/Single.json";
+import CommentCard from "@/components/Cards/CommentCard.vue";
 
 const monthNames = [
   "January",
@@ -146,10 +146,8 @@ export default {
       flex-direction: column;
 
       &__added {
+        @include varelaRegular(14px, green);
         margin-top: 18px;
-        font-family: "VarelaRoundRegular", Arial, Helvetica;
-        font-size: 14px;
-        color: green;
       }
 
       input {
@@ -158,8 +156,8 @@ export default {
         background-color: $social-grey;
         border: none;
 
-        font-family: "VarelaRoundRegular", Arial, Helvetica;
-        font-size: 14px;
+        @include varelaRegular(14px, black);
+
         &:nth-child(2) {
           margin: 8px 0;
         }
@@ -171,8 +169,7 @@ export default {
         padding: 13px 11px 13px 18px;
         border: none;
 
-        font-family: "VarelaRoundRegular", Arial, Helvetica;
-        font-size: 14px;
+        @include varelaRegular(14px, black);
       }
 
       button {
@@ -182,9 +179,8 @@ export default {
         background-color: $nav-bottom-background-color;
         cursor: pointer;
         border: none;
-        color: white;
-        font-family: "VarelaRoundRegular", Arial, Helvetica;
-        font-size: 14px;
+
+        @include varelaRegular(14px, white);
 
         @include rippleEffect(#5f5590);
       }

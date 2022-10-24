@@ -102,12 +102,10 @@ export default {
       width: 33px;
       height: 33px;
       background-color: $social-grey;
-      color: $nav-bottom-background-color;
       border: none;
       cursor: pointer;
-      font-weight: 400;
-      font-size: 14px;
-      font-family: "VarelaRoundRegular", Arial, Helvetica;
+
+      @include varelaRegular(14px, $nav-bottom-background-color);
 
       @include rippleEffect(#e6e6e6);
 

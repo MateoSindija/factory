@@ -58,14 +58,14 @@ export default {
 }
 
 .nextArrowNewsCarousel {
-  mask-image: url("../assets/arrowNext.svg");
+  mask-image: url("@/assets/arrowNext.svg");
   mask-size: contain;
   mask-repeat: no-repeat;
 }
 
 .prevArrowNewsCarousel {
   right: 22px;
-  mask-image: url("../assets/arrowPrev.svg");
+  mask-image: url("@/assets/arrowPrev.svg");
   mask-size: contain;
   mask-repeat: no-repeat;
 }
