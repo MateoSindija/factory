@@ -71,7 +71,9 @@
           <div>utroquoe</div>
         </div>
         <div class="upperRow__thirdCol__twitter">
-          <div class="colNewstTitle">Twitter Feed</div>
+          <div class="colNewstTitle upperRow__thirdCol__twitter__title">
+            Twitter Feed
+          </div>
           <TwitterFeed
             v-for="(i, index) in this.twitterData"
             :userName="i.userName"
@@ -118,7 +120,7 @@ footer {
 }
 
 .colNewstTitle {
-  color: white;
+  color: white !important;
 
   @include titleStyle();
 
@@ -248,6 +250,12 @@ footer {
 
   &__thirdCol {
     text-align: left;
+
+    &__twitter {
+      &__title {
+        margin-bottom: 42px;
+      }
+    }
 
     &__tags {
       display: flex;

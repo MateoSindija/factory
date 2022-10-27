@@ -1,18 +1,20 @@
 <template lang="">
-  <div :class="handleType">
-    <img src="@/assets/newsMountain.png" alt="news" />
-    <div class="card__article">
-      <div class="card__article__number">
-        {{ this.number }}
-      </div>
-      <div class="card__article__date">
-        {{ this.date }}
-      </div>
-      <div class="card__article__title">
-        {{ this.title }}
+  <router-link custom to="/single" v-slot="{ navigate }">
+    <div :class="handleType" @click="navigate">
+      <img src="@/assets/newsMountain.png" alt="news" />
+      <div class="card__article">
+        <div class="card__article__number">
+          {{ this.number }}
+        </div>
+        <div class="card__article__date">
+          {{ this.date }}
+        </div>
+        <div class="card__article__title">
+          {{ this.title }}
+        </div>
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 <script>
 export default {

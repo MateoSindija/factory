@@ -21,7 +21,7 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
+  height: 110px;
 
   &__username {
     display: flex;

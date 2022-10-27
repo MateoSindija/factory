@@ -116,6 +116,9 @@ export default {
       this.isModalOpen = false;
     },
   },
+  beforeUnmount() {
+    console.log("here");
+  },
 
   mounted() {
     $(".container__carouselImage").not(".slick-initialized").slick({

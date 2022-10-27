@@ -27,12 +27,22 @@
         class="container__comment__newReply"
         v-if="isReplyPressed"
       >
-        <input
-          type="text"
-          placeholder="Add a Reply..."
-          @input="handleReplyInput"
-          ref="reply"
-        />
+        <div class="container__comment__newReply__inputs">
+          <input
+            type="text"
+            placeholder="Your username..."
+            @input="handleUserNameInput"
+            class="replyInput container__comment__newReply__inputs__userName"
+            ref="userName"
+          />
+          <input
+            type="text"
+            class="replyInput container__comment__newReply__inputs__reply"
+            placeholder="Add a Reply..."
+            @input="handleReplyInput"
+            ref="reply"
+          />
+        </div>
         <div class="container__comment__newReply__buttons">
           <button
             type="button"
@@ -91,38 +101,71 @@ export default {
     },
   },
 
+  data() {
+    return {
+      comment: this.data,
+      isReplyPressed: false,
+      isReplyFilled: false,
+      isUserNameFilled: false,
+    };
+  },
+
+  computed: {
+    isReplyDisabled() {
+      console.log(this.isReplyFilled && this.isUserNameFilled ? true : false);
+      return this.isReplyFilled && this.isUserNameFilled ? false : true;
+    },
+  },
+
   methods: {
     handleReplyInput(event) {
       const value = event.target.value;
 
       if (value.trim()) {
-        this.isReplyDisabled = false;
+        this.isReplyFilled = true;
       } else {
-        this.isReplyDisabled = true;
+        this.isReplyFilled = false;
+      }
+    },
+
+    handleUserNameInput(event) {
+      const value = event.target.value;
+
+      if (value.trim()) {
+        this.isUserNameFilled = true;
+      } else {
+        this.isUserNameFilled = false;
       }
     },
 
     handleReply() {
       const reply = this.$refs.reply.value;
+      const userName = this.$refs.userName.value;
 
-      const newReply = { userName: "Anonymus", comment: reply };
+      const newReply = { userName: userName, comment: reply };
 
       this.comment.reply.push(newReply);
 
+      this.isReplyFilled = false;
+      this.isUserNameFilled = false;
       this.isReplyPressed = false;
     },
-  },
-
-  data() {
-    return {
-      comment: this.data,
-      isReplyPressed: false,
-      isReplyDisabled: true,
-    };
   },
 };
 </script>
 <style lang="scss" scoped>
+.replyInput {
+  @include varelaRegular(14px, black);
+
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 0.3px solid $title-color;
+}
+
 .notDisabled {
   @include rippleEffect(#5f5590);
 }
@@ -137,10 +180,12 @@ export default {
 
     &__newReply {
       margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+
       &__buttons {
         margin-top: 7px;
-        display: flex;
-        justify-content: flex-end;
+        margin-left: auto;
 
         &__cancel {
           margin-right: 10px;
@@ -170,16 +215,17 @@ export default {
         }
       }
 
-      input {
-        @include varelaRegular(14px, black);
+      &__inputs {
+        display: flex;
+        flex-direction: row;
+        &__userName {
+          width: 30%;
+          margin-right: 10px;
+        }
 
-        outline: none;
-        width: 100%;
-        box-sizing: border-box;
-        border-top: none;
-        border-left: none;
-        border-right: none;
-        border-bottom: 0.3px solid $title-color;
+        &__reply {
+          width: 70%;
+        }
       }
     }
 
